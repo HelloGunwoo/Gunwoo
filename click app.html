@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 카운터</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #circle {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            position: relative;
+        }
+        #counter {
+            font-size: 24px;
+            color: black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #message {
+            font-size: 24px;
+            color: red;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="circle" onclick="increaseCounter()">
+        <div id="counter">0</div>
+    </div>
+    <div id="message">당신은 속으셨습니다</div>
+    <script>
+        let count = 0;
+
+        function increaseCounter() {
+            count++;
+            document.getElementById('counter').innerText = count;
+
+            if (count === 25) {
+                document.getElementById('circle').style.display = 'none';
+                document.getElementById('message').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
